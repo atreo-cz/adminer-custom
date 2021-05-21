@@ -46,7 +46,8 @@ class AdminerSimpleMenu
         $actions = [$_GET["select"], $_GET["edit"], $_GET["table"], $_GET["create"], $_GET["indexes"], $_GET["foreign"], $_GET["trigger"]];
 
         foreach ($tables as $table => $status) {
-            $name = Adminer::tableName($status);
+            $name = (new Adminer())->tableName($status);
+
             if ($name == "") {
                 continue;
             }
